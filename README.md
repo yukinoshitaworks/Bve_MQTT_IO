@@ -14,12 +14,13 @@ Bve_MQTT_IO/
 │     ├─ BveEX_20251119.csproj
 │     ├─ packages.config          … NuGet 依存パッケージ一覧
 │     └─ config.json              … （現状コード内では未使用。将来の設定外だし用の下書き）
-└─ Yokokura/
-   ├─ E217r/                      … 実配置例①（E217系）
-   └─ 115/                        … 実配置例②（115系 / taka編成）
+└─ Scenarios/
+   └─ Yokokura/
+      ├─ E217r/                   … 実配置例①（E217系）
+      └─ 115/                     … 実配置例②（115系 / taka編成）
 ```
 
-`Yokokura/` 配下は、実際にプラグインを組み込んで運用している車両フォルダの実例です。
+`Scenarios/Yokokura/` 配下は、実際にプラグインを組み込んで運用している車両フォルダの実例です。
 **`Vehicle.txt` は他の車両フォルダ（例: `Uchibo20\E217r`、`Rock_On\Train\JR\...\Formation\taka`）を相対パスで参照しており、それらの参照先データ自体はこのリポジトリに含まれていません**（BVE路線・車両データは著作権上、再配布しない方針のため）。配置例の参考としてご覧ください。
 
 ## 必要環境
@@ -52,8 +53,10 @@ Bve_MQTT_IO/
 
 ## インストール方法（車両への組み込み）
 
+- BVE Trainsim 5 の `Scenarios` フォルダ以下に車両フォルダを配置することで、BVE からシナリオ／車両として認識・使用できるようになります（`Scenarios/Yokokura/E217r`、`Scenarios/Yokokura/115` は実際にその配置で運用している実例です）。
+
 1. 組み込みたい車両の `Vehicle.txt` と同じフォルダに、上記ビルド出力の dll 一式（`BveEX_20251119.dll` を含む）をすべてコピーする
-   - 複数車両に組み込む場合、`BveEX_20251119.dll` は車両ごとに分かりやすい名前にリネームしてよい（例: `Yokokura/115` では `BveEX_RockOn_115.dll` にリネームして使用）
+   - 複数車両に組み込む場合、`BveEX_20251119.dll` は車両ごとに分かりやすい名前にリネームしてよい（例: `Scenarios/Yokokura/115` では `BveEX_RockOn_115.dll` にリネームして使用）
    - 依存 dll（`BveEx.*`, `BveTypes.dll` など）は同じセットをそのまま一緒にコピーする（リネーム不要）
 2. `Vehicle.txt` と同じフォルダに、`Vehicle.txt` と同じベース名の `*.VehiclePluginUsing.xml` を作成する
 
@@ -64,7 +67,7 @@ Bve_MQTT_IO/
    </BveExPluginUsing>
    ```
 
-   `Path` は手順1でリネームした場合そのファイル名に合わせる（`Yokokura/E217r`、`Yokokura/115` の実例を参照）
+   `Path` は手順1でリネームした場合そのファイル名に合わせる（`Scenarios/Yokokura/E217r`、`Scenarios/Yokokura/115` の実例を参照）
 3. MQTT ブローカーを起動しておく
 4. BVE でシナリオを開始する。プラグインがロードされるとデバッグ用コンソールウィンドウが表示され、MQTT 接続ログが確認できる
 
