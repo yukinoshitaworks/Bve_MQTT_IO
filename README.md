@@ -24,6 +24,11 @@ Bve_MQTT_IO/
 `Scenarios/Yokokura/MQTT_IO/` 配下は、実際にプラグインを組み込んで運用している車両フォルダの実例です。
 **`Vehicle.txt` は他の車両フォルダ（例: `Uchibo20\E217r`、`Rock_On\Train\JR\...\Formation\taka`）を相対パスで参照しており、それらの参照先データ自体はこのリポジトリに含まれていません**（BVE路線・車両データは著作権上、再配布しない方針のため）。配置例の参考としてご覧ください。
 
+## 著作権について
+
+本コードの(生成AIを用いた)改造/Pull Request/Isuueは歓迎いたします。ご自身が製作した車両データや路線データに組み込む際も連絡は不要です(配布される場合readme等に記載いただければ嬉しいです)。
+ユーザー各自の所有している実物機器への対応や、他の作者さんの車両データに対応した改造なども問題ありませんが、データ作者の皆様にご迷惑が掛からない形で進めていただくようお願いいたします。
+
 ## 必要環境
 
 - BVE Trainsim 5 (Mackoy's BveTs5) がインストール済みで、 BveEx のランタイムが有効な状態
@@ -83,8 +88,8 @@ Bve_MQTT_IO/
 | `bve/location` | キロ程 | m、小数点1桁 |
 | `bve/pilot` | 全戸閉状態 | `1`=閉 / `0`=開 |
 | `bve/am` | 電流計（アンペア） | 小数点1桁 |
-| `bve/panel` | パネル配列 `PanelArray[0..8]` | JSON配列 `[v0,v1,...,v8]` |
-| `bve/sound` | サウンド配列の一部 `SoundArray[0,1,3,4]` | JSON配列 `[v0,v1,v3,v4]` |
+| `bve/panel` | パネル配列 `PanelArray[0..8]` (ATS-P表示灯)| JSON配列 `[v0,v1,...,v8]` |
+| `bve/sound` | サウンド配列の一部 `SoundArray[0,1,3,4]` (ATSベル、チャイムなど))| JSON配列 `[v0,v1,v3,v4]` |
 
 ### Subscribe（MQTT → BVE、外部操作用）
 
@@ -103,10 +108,6 @@ Time, Location, Speed, Reverser, Power, Brake, ConstantSpeed, Pilot, Ampere, Bra
 ```
 
 `Log\` フォルダは実行のたびに肥大化するため、このリポジトリには含めていません（`.gitignore` で除外）。
-
-##その他
-本コードの(生成AIを用いた)改造/Pull Request/Isuueは歓迎いたします。ご自身の車両データや路線データに組み込む際も連絡は不要です(readme等に記載いただければ嬉しいです)。
-他の作者さんのデータに組み込んだうえで配布するなどの場合は、関係の作者さんに許可を取るようお願いいたします。
 
 ## 既知の制限
 
