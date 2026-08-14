@@ -17,8 +17,8 @@ Bve_MQTT_IO/
 └─ Scenarios/
    └─ Yokokura/
       └─ MQTT_IO/
-         ├─ Uchibo20_E217r/       … 実配置例①（E217系）
-         └─ Rock_On_115_taka_T1040/ … 実配置例②（115系 / taka編成）
+         ├─ Uchibo20_E217r/       … 実配置例①（内房線E217系）
+         └─ Rock_On_115_taka_T1040/ … 実配置例②（Rock_On氏115系 高タカT1040編成）
 ```
 
 `Scenarios/Yokokura/MQTT_IO/` 配下は、実際にプラグインを組み込んで運用している車両フォルダの実例です。
@@ -26,10 +26,10 @@ Bve_MQTT_IO/
 
 ## 必要環境
 
-- BVE Trainsim 5 (Mackoy's BveTs5) がインストール済みで、AtsEx / BveEx のランタイムが有効な状態
+- BVE Trainsim 5 (Mackoy's BveTs5) がインストール済みで、 BveEx のランタイムが有効な状態
 - .NET Framework 4.8
 - ビルドする場合: Visual Studio 2022 (Community 可) または MSBuild
-- MQTT ブローカー（例: [Mosquitto](https://mosquitto.org/)）が `localhost:1883` で稼働していること
+- MQTT ブローカー（例: [Mosquitto](https://mosquitto.org/)）が `localhost:1883` で稼働していること。[Node-RED Dashboard](https://github.com/yukinoshitaworks/Bve_Node-RED_Dashboard)の構築も併せてご参照ください。
   - ホスト/ポートを変えたい場合は `Class1.cs` 内の `MqttHost` / `MqttPort` 定数を編集して再ビルドしてください
 
 ## ビルド方法
