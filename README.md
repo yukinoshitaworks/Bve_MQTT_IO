@@ -1,7 +1,7 @@
 # Bve_MQTT_IO
 
 BVE Trainsim 5 (BveTs5) 用の [BveEx](https://github.com/automatic9045/BveEx) 車両プラグインです。
-走行状態(速度・位置・ノッチ・パネル値・サウンド値など)を MQTT へ Publish し、逆に MQTT 経由でノッチ・逆転器を外部から操作(Subscribe)できます。BVE と外部システム(ダッシュボード、コントローラ、収録装置など)を MQTT で連携させるための橋渡し役です。
+走行状態(速度・位置・ノッチ・パネル値・サウンド値など)を MQTT へ Publish し、逆に MQTT 経由でノッチ・逆転器を外部から操作(Subscribe)できます。BVE と実物機器を MQTT で連携させるための橋渡し役です。
 
 ## リポジトリ構成
 
